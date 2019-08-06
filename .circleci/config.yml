@@ -1,1 +1,15 @@
-#
+version: 2
+jobs:
+  build:
+    docker:
+    - image: circleci/jdk1.8
+    steps:
+    - checkout
+    - run: google-chrome --version
+    - run: xvfb-run java -Dwebdriver.chrome.driver=chromedriver -jar selenium-server-standalone.jar >/dev/null 2>&1 &
+    - run: java -jar Test.jar 
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
