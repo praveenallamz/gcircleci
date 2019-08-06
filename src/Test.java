@@ -8,7 +8,7 @@ public class Test {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		System.setProperty("webdriver.chrome.driver","../chromedriver");
+		System.setProperty("webdriver.chrome.driver","chromedriver");
 		  driver = new ChromeDriver();
 		
 		  driver.manage().window().maximize();
