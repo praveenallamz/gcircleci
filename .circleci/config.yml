@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
     - image: circleci/openjdk:8-jdk
+    - image: selenium/standalone-chrome:3.5.1
+    environment:
+          CHROME_BIN: "/usr/bin/google-chrome"
     steps:
     - checkout
     - run: xvfb-run java -jar selenium-server-standalone.jar >/dev/null 2>&1 &
