@@ -13,6 +13,7 @@ jobs:
     - run: chmod +777 chromedriver
     - run: xvfb-run java -Dwebdriver.chrome.driver=../chromedriver -jar ../selenium-server-standalone.jar >/dev/null 2>&1 &
     - run: chromedriver --version
+    - run: selenium --version
     - run: java -version
     - run: java -jar src/Test.jar
 workflows:
