@@ -2,14 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/openjdk:8-jdk
+    - image: circleci/openjdk:8-jdk-browsers
     - image: selenium/standalone-chrome:3.5.1
     environment:
           CHROME_BIN: "/usr/bin/google-chrome"
     steps:
     - checkout
-    - run: xvfb-run java -jar selenium-server-standalone.jar >/dev/null 2>&1 &
-    - run: java -jar Test.jar 
+    - run: sudo apt update
+    - run: google-chrome --version
+    - run: xvfb-run java -Dwebdriver.chrome.driver=../chromedriver -jar ../selenium-server-standalone.jar >/dev/null 2>&1 &
+    - run: chromedriver --version
+    - run: java -version
+    - run: java -jar Test.jar
 workflows:
   version: 2
   workflow:
