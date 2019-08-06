@@ -8,7 +8,8 @@ public class Test {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		System.setProperty("webdriver.chrome.driver","chromedriver");
+		//System.setProperty("webdriver.chrome.driver","chromedriver");
+		WebDriver driver = new RemoteWebDriver("http://localhost:9515", DesiredCapabilities.chrome());
 		  driver = new ChromeDriver();
 		
 		  driver.manage().window().maximize();
